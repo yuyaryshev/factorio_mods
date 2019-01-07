@@ -1,0 +1,11 @@
+{
+  "technology":
+  [
+    ["alien-hybridization1", "alien-hybridization-1"],
+	["alien-hybridization2", "alien-hybridization-2"],
+	["alien-hybrid-upgrade1", "alien-hybrid-upgrade-1"],
+	["alien-hybrid-upgrade2", "alien-hybrid-upgrade-2"],
+	["alien-hybrid-upgrade3", "alien-hybrid-upgrade-3"],
+	["alien-hybrid-upgrade4", "alien-hybrid-upgrade-4"]
+  ]
+}

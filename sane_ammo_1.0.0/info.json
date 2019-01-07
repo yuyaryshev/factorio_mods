@@ -1,0 +1,11 @@
+
+{
+  "name": "sane_ammo",
+  "version": "1.0.0",
+  "title": "Sane Ammo (less Iron, more Coal)",
+  "author": "LordOdin",
+  "homepage": "none",
+  "description": "Main idea of this mod is replace metals in ammo with coal or explosives - i.e. oil and coal products. Why: Because ammo made of 4 Iron just can't burn and fire. It can only be thrown with a catapult. Because now coal matters. Because now player have a choise on early stages - mine iron to build or mine coal to fight. Because now having have turrent defence makes sence even with lasers. Because now having have military science cost much more coal and much less iron, which again gives more reason to mine coal.",
+  "dependencies": ["base >= 0.15.0"],
+  "factorio_version": "0.16"
+} 

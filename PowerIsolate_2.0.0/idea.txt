@@ -1,0 +1,5 @@
+	- When a pole is open - show the gui
+	- When checkbox is set - save opened pole and all the poles in the same network to a table, indexed by entity.unit_number
+	! When a new entity is built it's autoconnected to adjacent
+	- Disconnect it from all entities except the ones in table by entity.unit_number
+	- Add new entity to the table

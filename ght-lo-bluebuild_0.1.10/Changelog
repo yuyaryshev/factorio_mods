@@ -1,0 +1,64 @@
+Version 0.1.10
+  based on commit f80ae3613abab5b27cc69a7cacc4c3d2f3e22c5d
+
+* fix handling of product amount
+
+Version 0.1.9
+  based on commit 58cded13b638ed6d69e80443eb491dd76712a4c0
+
+* pass more arguments to construct_entity
+* fix undeclared function add_pending_construction
+
+Version 0.1.8
+  based on commit 07891cdc13627af8fa0a05da05bf9d817f4a4967
+
+* add item-request-proxy to pending list
+
+Version 0.1.7
+  based on commit b1cb6addd1ad40e57f668b237691929aca262fab
+
+* remove progressbar on join or modification
+
+Version 0.1.6
+  based on commit db688ddc4335ba3948bf7f276d28dcac9f9912a3
+
+* fix function remove_item_with_health
+* add mod name to raised events
+
+Version 0.1.5
+  based on commit b2289be4597aac378bcaa4a68e175bec5409e6c5
+
+* add release script
+* fix uninitialized state for rejoined players
+* fix unquoted item type
+
+Version 0.1.4
+  based on commit d82eb6ef073a8d177969821e108b68695970e254
+
+* fix error on full inventory
+* remove debug messages
+* fix error on full inventory
+
+Version 0.1.3
+  based on commit 4da71163bf509cf45bca9527d3084b126a49024e
+
+* rename miningtime -> mining_time
+
+Version 0.1.2
+  based on commit bb6fec2259fa0857cdaa5b6fde4c39972adbe5b2
+
+* handle item-request-proxy
+* raise event for optional created proxy
+* rename argument of add_durability
+* limit the build distance to 32
+
+Version 0.1.1
+  based on commit fc28bbb1be6545569bac95b9e4a0befc0cc78542
+
+* fix deconstruction of machines without recipe
+* add script to release a version
+
+Version 0.1.0
+  based on commit 0b051cc094e05485a304bef597d6ed91dad393d2
+
+* initial release

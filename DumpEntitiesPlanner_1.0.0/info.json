@@ -1,0 +1,11 @@
+{
+	"name": "DumpEntitiesPlanner",
+	"version": "1.0.0",
+	"factorio_version": "0.16",
+	"title": "Dump Entities Planner",
+	"author": "thelordodin",
+	"contact": "thelordodin@gmail.com",
+	"homepage": "",
+	"description": "A utility mod. Creates a 'Dump Entities Planner'. Use it to dump to a text file all the entities inside selected rectangle.",
+	"dependencies": ["base >= 0.15.0"]
+}

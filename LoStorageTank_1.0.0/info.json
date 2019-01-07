@@ -1,0 +1,11 @@
+{
+  "name": "LoStorageTank",
+  "version": "1.0.0",
+  "title": "LordOdins Storage Tank",
+  "author": "Graphics by Optera",
+  "contact": "https://forums.factorio.com/memberlist.php?mode=viewprofile&u=21729",
+  "homepage": "",
+  "description": "Adds an upgraded storage tank with 1000k capacity and more pipe connections.",
+  "factorio_version": "0.16",
+	"dependencies": ["base >= 0.16.0"]	
+}

@@ -1,0 +1,7 @@
+Main idea of this mod is replace metals in ammo with coal or explosives - i.e. oil and coal products. 
+Why: 
+ - Because ammo made of 4 Iron or 1 Steel & 5 Copper just can't burn so it can only be thrown with hand or a catapult. 
+ - Because now coal matters. 
+ - Because now player have a choise on early stages - mine iron to build or mine coal to fight. 
+ - Because now having have turrent defence makes sence even with lasers. 
+ - Because now having have military science cost much more coal and much less iron, which again gives more reason to mine coal.

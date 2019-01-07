@@ -1,0 +1,13 @@
+﻿Simple mod interface request
+
+Make "electric network id" of "pole" entities available to mods.
+Reason:
+I want to make a feature to my PowerIsolate mod which keeps isolated power networks isolated when creating new poles:
+
+When you build a new pole it's automatically connected to all adjacent poles, which results in that you cant easily manage two power networks co-existing in same area.
+
+I want to make a feature to my mod which "on_build": a checkbox "lock electric network",
+when it's set - all new poles will only be able to connect to 
+
+
+
