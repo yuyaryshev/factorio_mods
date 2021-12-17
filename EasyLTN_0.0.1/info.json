@@ -6,5 +6,5 @@
   "homepage": "",
   "dependencies": ["base >= 0.16","? LogisticTrainNetwork >= 0.1"],
   "description": "This is an addon to Logistic Trains Network (LTN). It adds: put items inserters holding back when train leaves, auto fueling, auto add filters to cargo wagons and more - see mod's settings.",
-  "factorio_version": "0.16"
+  "factorio_version": "0.18"
 }

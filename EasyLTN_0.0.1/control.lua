@@ -10,6 +10,7 @@ function lo_dbg_print(msg)
 	game.players[1].print(msg)
 end
 
+
 function dbg_str(state)
 if state == defines.train_state.on_the_path            then return 'on_the_path' end
 if state == defines.train_state.path_lost              then return 'path_lost' end
@@ -138,7 +139,7 @@ function addScheduleNext(train, new_record)
 			table.insert(new_schedule.records, train.schedule.records[i])
 			if train.schedule.current ~= nil and train.schedule.current == i then
 				table.insert(new_schedule.records, new_record)
-				--lo_dbg_print('Adding train station '..new_record.station)
+				----lo_dbg_print('Adding train station '..new_record.station)
 			end
 		end
 		train.schedule = new_schedule
@@ -167,7 +168,7 @@ function addScheduleCurrent(train, new_record)
 		for i = 1, #train.schedule.records do
 			if train.schedule.current ~= nil and train.schedule.current == i then
 				table.insert(new_schedule.records, new_record)
-				--lo_dbg_print('Adding train station '..new_record.station)
+				----lo_dbg_print('Adding train station '..new_record.station)
 			end
 			table.insert(new_schedule.records, train.schedule.records[i])
 		end
@@ -178,7 +179,7 @@ end
 function blockTrainAndStation(train)
 	train.manual_mode = true
 	local station = train.station or prevStation(train)
-	lo_dbg_print('Blocked train='..train.id..', fluidsTotal(train)='..fluidsTotal(train)..', itemsTotal(train)='..itemsTotal(train)..', station='..(station and station.name or 'nil'))
+	--lo_dbg_print('Blocked train='..train.id..', fluidsTotal(train)='..fluidsTotal(train)..', itemsTotal(train)='..itemsTotal(train)..', station='..(station and station.name or 'nil'))
 	
 	local firstLoco = train.front_stock
     local px = firstLoco.position.x
@@ -197,13 +198,13 @@ function blockTrainAndStation(train)
 	if not station then
 		local stations = firstLoco.surface.find_entities_filtered{area=searchArea, type = "train-stop"}
 		for _, entity in ipairs(stations) do
-			lo_dbg_print('Blocked train='..train.id..' - near station '..entity.backer_name..'!')
+			--lo_dbg_print('Blocked train='..train.id..' - near station '..entity.backer_name..'!')
 		end
 	end
 	
 	local blockers0 = firstLoco.surface.find_entities_filtered{area=searchArea, type = "constant-combinator", name="switchbutton"}
 	if #blockers0 <= 0 then 
-		lo_dbg_print('Blocked train='..train.id..' - no blocker found on station!')
+		--lo_dbg_print('Blocked train='..train.id..' - no blocker found on station!')
 		return 
 	end
 	
@@ -239,9 +240,9 @@ function printSchedule(train)
 local i
 	for i = 1, #train.schedule.records do
 		if train.schedule.current ~= nil and train.schedule.current == i then
-			lo_dbg_print('=> '..serpent.line(train.schedule.records[i].station))
+			--lo_dbg_print('sch => '..serpent.line(train.schedule.records[i].station))
 		else
-			lo_dbg_print('   '..serpent.line(train.schedule.records[i].station))
+			--lo_dbg_print('sch    '..serpent.line(train.schedule.records[i].station))
 		end
 	end
 end
@@ -266,6 +267,14 @@ load_settings()
 script.on_event(defines.events.on_runtime_mod_setting_changed, load_settings)
 
 function on_train_changed_state_func(event)
+	if __DebugAdapter then
+		lo_dbg_print('inside __DebugAdapter')
+		__DebugAdapter.breakpoint("Yya_break_test")
+	else
+		lo_dbg_print('outside of __DebugAdapter')		
+	end 
+
+
 	if settings_main_switch then
 		local train = event.train
 		if isLTNTrain(train) then
@@ -275,17 +284,17 @@ function on_train_changed_state_func(event)
 			elseif event.train.state == defines.train_state.wait_station then
 				lo_state = 'stops';
 			end
-	--		lo_dbg_print('id='..train.id)
-	--		printSchedule(train)
-	--		lo_dbg_print('lo_state='..lo_state)
+--			--lo_dbg_print('id='..train.id)
+--			printSchedule(train)
+--			--lo_dbg_print('lo_state='..lo_state)
 			
-	--		lo_dbg_print('Train event.old_state='..dbg_str(event.old_state)..', train.state='..dbg_str(train.state))
+--			--lo_dbg_print('Train event.old_state='..dbg_str(event.old_state)..', train.state='..dbg_str(train.state))
 
 			-- defines.train_state.on_the_path
 			if event.old_state == defines.train_state.wait_station then
 				-- train leaving a station
 				if settings_cargo_filters and IsLTNDepot(prevStation(train)) then
-	--				lo_dbg_print('setCargoFilters')
+	--				--lo_dbg_print('setCargoFilters')
 	--				setCargoFiltersNew(train)
 				end
 				
@@ -302,21 +311,27 @@ function on_train_changed_state_func(event)
 					if settings_block_stations and LTNDepotIsCurrent(train) and (fluidsTotal(train) + itemsTotal(train) > 0.1) then
 						blockTrainAndStation(train)
 					elseif settings_trash_stations and LTNDepotIsCurrent(train) and (fluidsTotal(train) + itemsTotal(train) > 0.1) then
-						lo_dbg_print('Sending to Cleaner train='..train.id..', fluidsTotal(train)='..fluidsTotal(train)..', itemsTotal(train)='..itemsTotal(train)..', station='..(train.station and train.station.name or 'nil'))
+						--lo_dbg_print('Sending to Cleaner train='..train.id..', fluidsTotal(train)='..fluidsTotal(train)..', itemsTotal(train)='..itemsTotal(train)..', station='..(train.station and train.station.name or 'nil'))
 						addScheduleCurrent(train, "Cleaner")	  
 					end
 				end
 			
 			-- event.old_state == defines.train_state.arrive_signal and 
 			elseif event.train.state == defines.train_state.wait_station then
+			
+			--lo_dbg_print('id='..train.id)
+			printSchedule(train)
+			--lo_dbg_print('lo_state='..lo_state)
+--			--lo_dbg_print('Train event.old_state='..dbg_str(event.old_state)..', train.state='..dbg_str(train.state))
+			
 				-- train stopped on a station	
 				if settings_cargo_filters then
-	--				lo_dbg_print('setCargoFilters')
+					--lo_dbg_print('setCargoFilters - train stopped on a station	')
 					setCargoFiltersOld(train)
 				end
 
 				if settings_cargo_filters then
-	--				lo_dbg_print('setCargoFilters')
+	--				--lo_dbg_print('setCargoFilters')
 	--				setBarNew(train)
 				end
 				
@@ -331,7 +346,7 @@ end
 script.on_event(defines.events.on_train_changed_state, function(event) 
 	local status, err = pcall(on_train_changed_state_func, event)
 	if not status then
-		lo_dbg_print('ERROR Catched by pcall:'..serpent.line(err))
+		--lo_dbg_print('ERROR Catched by pcall:'..serpent.line(err))
 	end
 end)
 

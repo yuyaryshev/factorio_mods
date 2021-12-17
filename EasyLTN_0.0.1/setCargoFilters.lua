@@ -31,7 +31,7 @@
 --	end
 
 function setCargoFilterBars(x)
---	lo_dbg_print('Setting train filters to '..(item_name or 'nil'))
+--	--lo_dbg_print('Setting train filters to '..(item_name or 'nil'))
     if train.cargo_wagons then
     for n,wagon in pairs(train.cargo_wagons) do
       local inventory = wagon.get_inventory(defines.inventory.cargo_wagon)
@@ -48,7 +48,7 @@ function setCargoFilterBars(x)
 end
 
 function setCargoFiltersToItem(train,item_name)
---	lo_dbg_print('Setting train filters to '..(item_name or 'nil'))
+--	--lo_dbg_print('Setting train filters to '..(item_name or 'nil'))
     if train.cargo_wagons then
     for n,wagon in pairs(train.cargo_wagons) do
       local inventory = wagon.get_inventory(defines.inventory.cargo_wagon)
@@ -120,7 +120,7 @@ function setCargoFiltersNew(train)
 			interv = interv_b
 		end
 
-	--	lo_dbg_print('Setting train filters to '..serpent.line(load_ranges))
+	--	--lo_dbg_print('Setting train filters to '..serpent.line(load_ranges))
 		if train.cargo_wagons then
 		for n,wagon in pairs(train.cargo_wagons) do
 		  local inventory = wagon.get_inventory(defines.inventory.cargo_wagon)
@@ -151,29 +151,42 @@ end
 
 function setCargoFiltersOld(train)
 	if #train.schedule.records > 0 and train.schedule.current ~= nil then
+		--lo_dbg_print('CD00004 setCargoFilters - insize if #train.schedule.records')
+
 		local do_set_filters = true
 		local item_to_set = nil
 		local current_schedule = train.schedule.records[train.schedule.current]
 		if current_schedule.wait_conditions then
+			--lo_dbg_print('CD00005 setCargoFilters - insize if current_schedule.wait_conditions')
 			for _,wait_condition in pairs(current_schedule.wait_conditions) do
 				if wait_condition.type == "item_count" then
 					local c = wait_condition.condition
-					if c.comparator == "=" and c.first_signal.type == "item" and c.constant == 0 then
-						if item_to_set then	-- several items?
-							do_set_filters = false
+					--lo_dbg_print('CD00006 setCargoFilters - insize if wait_condition.type == item_count')
+					--lo_dbg_print('CD00006 c = ' .. serpent.line(c))
+					if c.first_signal.type == "item" then 
+						--lo_dbg_print('CD00012 inside if c.first_signal.type == "item"')
+						if c.comparator == "=" and c.constant == 0 then
+							--lo_dbg_print('CD00007 setCargoFilters - insize c.comparator == =')
+							if item_to_set then	-- several items?
+								do_set_filters = false
+							end
+							item_to_set = 'easyltn-blocker'	-- Setting this to allow removing items only
+						elseif c.constant > 0 then --c.comparator == "?" then
+							--lo_dbg_print('CD00008 setCargoFilters - insize c.comparator == ?')
+							if item_to_set then	-- several items?
+								do_set_filters = false
+							end
+							item_to_set = c.first_signal.name
+						else
 						end
-						item_to_set = 'iron-axe'	-- Setting this allow removing items only
-					elseif c.comparator == ">" and c.first_signal.type == "item" then
-						if item_to_set then	-- several items?
-							do_set_filters = false
-						end
-						item_to_set = c.first_signal.name
+						--lo_dbg_print('CD00011')
 					end
 				end
 			end
 		end
 		
 		if do_set_filters and item_to_set then
+			--lo_dbg_print('CD00009 setCargoFilters - insize last if before setCargoFiltersToItem')
 			setCargoFiltersToItem(train,item_to_set)
 		end
 	end
