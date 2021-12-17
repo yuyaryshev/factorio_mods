@@ -1,0 +1,12 @@
+require "defines"
+game.onevent(defines.events.onputitem,function(e)
+  local res=game.findentities{{e.position.x,e.position.y},{e.position.x+1,e.position.y+1}}
+  if res then
+    for i=1,#res do
+      if res[i].name:sub(0,7)=="planner" then
+        res[i].destroy()
+      end
+    end
+  end
+end
+)

@@ -1,0 +1,11 @@
+
+{
+  "name": "cheaper_rail_and_concrete",
+  "version": "1.1.1",
+  "title": "LordOdin - bigger stack sizes",
+  "author": "LordOdin",
+  "homepage": "none",
+  "description": "LordOdin - bigger stack sizes.",
+  "dependencies": ["base >= 0.14.0"],
+  "factorio_version": "0.14"
+} 

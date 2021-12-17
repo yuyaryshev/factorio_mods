@@ -1,0 +1,11 @@
+{
+  "name": "basic-planner",
+  "version": "1.0.0",
+  "title": "Basic planner",
+  "author": "Xecutor",
+  "homepage": "http://www.factorioforums.com/forum/",
+  "contact": "Message me @ http://www.factorioforums.com/forum/",
+  "description": "Allows basic planning of your base.",
+  "dependencies": ["base >= 0.14.0" ],
+  "factorio_version": "0.14"
+}

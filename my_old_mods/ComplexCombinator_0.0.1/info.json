@@ -1,0 +1,10 @@
+{
+  "name": "ComplexCombinator",
+  "version": "0.0.1",
+  "title": "ComplexCombinator",
+  "author": "Yuri Yaryshev",
+  "homepage": "",
+  "dependencies": ["base"],
+  "description": "A combinator which allows you to use several operations inside one combinator.",
+  "factorio_version": "0.14"
+}

@@ -1,0 +1,22 @@
+﻿Inserters antifreeze (antiblock)
+
+Sometimes an inserter is holding an item which can't be inserted into target and it freezes (locks). Only way to release it is manually. 
+This mod fixes this. How? It monitors all your inserters and if found a problem it will reverse inserter, wait until it put's the item back and then restores it. 
+When the problem this happens: 
+
+Solved cases:
+- You placed new factory after you placed an inserter.
+- When stack inserter is loading train and is not able to put all the stack into the train
+
+Unsolved cases:
+- Smelting steel and iron and/or stone togather 
+- Loading from fully loaded belt - here inserter just don't have any place to put what it's holding.
+
+Concept:
+I like the solution to be more natural and realistic - if I imagine an inserter it really can be programmed to turn around in some cases.
+But teleporting hand's contens somewhere away isn't "natural".
+
+Ideas (not implemented yet):
+If an inserter is frozen drop item on the ground and mark it for deconstruction by construction robot.
+
+If you have any ideas how to solve inserter locking problems in more an elegant way - please share.

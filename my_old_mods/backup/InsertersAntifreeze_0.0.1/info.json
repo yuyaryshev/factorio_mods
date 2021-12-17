@@ -1,0 +1,11 @@
+{
+  "name": "InsertersAntifreeze",
+  "version": "0.0.1",
+  "factorio_version": "0.14",
+  "dependencies": ["base >= 0.14"],
+  "title": "Inseters Antifreeze",
+  "author": "LordOdin",
+  "contact": "",
+  "homepage": "",
+  "description": "Sometimes an inserter is holding an item which can't be inserted into target and it freezes (locks). Only way to release it is manually. This mod fixes this. How? It slowly (so it don't affect perfomance and it won't be much cheating) monitors all your inserters and if found a problem it will rotate inserter 180 degrees and back. When the problem this happens: you placed new factory after you placed an inserter, when stack inserter is loading train and is not able to put all the stack into the train, smelting steel and iron and/or stone togather."
+}
