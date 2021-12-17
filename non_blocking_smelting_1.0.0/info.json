@@ -1,0 +1,11 @@
+
+{
+  "name": "non_blocking_smelting",
+  "version": "1.0.0",
+  "title": "Non blocking smelting",
+  "author": "LordOdin",
+  "homepage": "none",
+  "description": "Changes smelting recipes so they don't block smelters. Balance isn't changed. Example: 5 iron => 1 steel changes to 1 iron => 1 steel with 0.2 probability. Should work fine for modded ores too. Does not affect complex alloy recipes with may ingridients.",
+  "dependencies": ["base >= 0.15.0"],
+  "factorio_version": "0.16"
+} 
