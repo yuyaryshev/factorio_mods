@@ -1,0 +1,38 @@
+Very early version (0.1)
+
+The reason: 
+I hate circuit wires. I can't really see where it goes from and to. It's messy.
+
+Description:
+- This combinator combines up to 16 operations in one unit
+- It have 4 inputs and 4 outputs.
+- Inputs support separate channels (so it's actually 8 inputs)
+- It supports additional operations which can't be accomplished by vanilla combinators
+
+Working features:
+- Operations: + - * / min max		(not deeply tested, but should work)
+- Copy and paste - copies the program
+- Export and import through edit box
+
+Problems:
+- Graphics are awful... (I'm really bad with graphics so I won't fix this myself...)
+	- And layout of all the entities. I want this thing to be small (1x1 at best) but, i couldn't make it to work with the blueprints
+- Blueprints won't save the program (I don't know a way to save it into the entity)
+- No technology yet
+- Receipe is 1 iron for now
+
+Your help would be appreciated and is needed:
+- Helping with how to implement saving program to a blueprint
+- With graphics
+- With testing
+- With suggestions for balance
+- With suggestions of new useful functions
+- Any other feedback
+
+Disclamer:
+- This mod is really unstable and untested. You can kill your save, so make backups.
+- I don't really know if i'm going to finish all this because of big problems I mentioned above and lack of time
+
+License:
+- It's absolutely free - use, copy, fork, do whatever you like...
+- In fact I'll be glad if someone experianced and who really love to make mods take it and make it to the production.

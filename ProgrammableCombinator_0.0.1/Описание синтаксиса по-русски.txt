@@ -1,0 +1,27 @@
+Declaration
+	a = get(reg
+
+Decider
+	check a > b output a end				// Decider outputing input
+	check a > b output 1 end				// Decider outputing 1
+	check a > b output -1 end				// Decider outputing 1 and arithmetic mul * -1
+	check any a > b output 1 end			// Decider outputing 1, inputing any
+	check every a > b output 1 end			// Decider outputing 1, inputing every
+	check a > b output a end as iron_plate	// Decider outputing input converting it to iron_plate
+	
+Arithmetic
+	A + B									// A pole, connecting two wires
+	A - B									// A pole and a arithmetic -1
+	
+	
+Conversion
+	each A as iron_plate					// Arithmetic outputting into 'iron-plate'
+	
+Filtering
+	a.iron_plate							// Extract iron_plate only from A
+
+-------------------------------------------
+(a.iron_plate * 2 + b.electronic_circuit * 3 - c.electric_engine) as copper_plate
+-------------------------------------------
+intellisence display:
+(a.[gui-signal]*[gui-edit]+b.[gui-signal]*[gui-edit] - c.[gui-signal]) as [gui-signal]
