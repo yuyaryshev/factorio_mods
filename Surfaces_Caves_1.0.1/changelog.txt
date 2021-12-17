@@ -1,0 +1,3 @@
+Version: 1.0.1
+  Features:
+    - Add settings for cave map and cave darkness

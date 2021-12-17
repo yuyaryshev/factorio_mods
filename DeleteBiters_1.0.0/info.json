@@ -1,0 +1,9 @@
+{
+    "name": "DeleteBiters",
+    "version": "1.0.0",
+    "title": "DeleteBiters",
+    "author": "TheLordOdin",
+    "dependencies": ["base >= 1.1.0"],
+    "description": "Deletes biter monsters. Reversible by removing.",
+    "factorio_version": "1.1"
+}
